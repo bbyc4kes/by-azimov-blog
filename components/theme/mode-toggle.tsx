@@ -22,9 +22,9 @@ export function ModeToggle() {
       onClick={toggleTheme}
     >
       {hasMounted && theme === 'light' ? (
-        <Sun className="h-[1.2rem] w-[1.2rem] scale-100 transition-all" />
-      ) : (
         <Moon className="h-[1.2rem] w-[1.2rem] scale-100 transition-all" />
+      ) : (
+        <Sun className="h-[1.2rem] w-[1.2rem] scale-100 transition-all" />
       )}
     </Button>
   )

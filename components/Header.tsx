@@ -12,7 +12,6 @@ import {
 } from '@/components/ui/sheet'
 import { Button } from './ui/button'
 import { Command, CommandGroup, CommandItem, CommandList } from './ui/command'
-import { ModeToggle } from './theme/mode-toggle'
 
 const Navigation = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
@@ -21,7 +20,7 @@ const Navigation = () => {
     setIsSheetOpen(false)
   }
   return (
-    <div className="p-3 flex items-center justify-between border-b z-10 backdrop-blur-[0.5rem] border-opacity-40 bg-opacity-80 fixed top-0 w-full uppercase">
+    <div className="p-3 flex items-center z-10 fixed top-0 w-full uppercase md:justify-end">
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetTrigger asChild className="z-[100] md:!hidden flex">
           <Button variant="outline" size={'icon'}>
@@ -64,12 +63,7 @@ const Navigation = () => {
           </Command>
         </SheetContent>
       </Sheet>
-      <aside className="w-44 hidden md:flex">
-        <Link href="/">
-          <BookOpenText className="hover:text-primary/80 duration-100 transition-colors" />
-        </Link>
-      </aside>
-      <nav className="gap-4 justify-center font-semibold w-5/12 hidden md:flex text-primary">
+      <header className="gap-2 justify-center font-semibold w-5/12 hidden md:flex text-primary">
         <Link
           href="#about"
           className="w-40 text-center hover:text-primary/80 duration-100 transition-colors"
@@ -88,10 +82,7 @@ const Navigation = () => {
         >
           Contact
         </Link>
-      </nav>
-      <aside className="flex gap-2 items-center w-44 justify-end">
-        <ModeToggle />
-      </aside>
+      </header>
     </div>
   )
 }
