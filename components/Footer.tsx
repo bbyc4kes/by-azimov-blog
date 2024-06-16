@@ -1,13 +1,23 @@
+import clsx from 'clsx'
 import { Instagram, Linkedin, LucideMail } from 'lucide-react'
+import { Bricolage_Grotesque } from 'next/font/google'
 import Link from 'next/link'
 import React from 'react'
 
+const Bricolage = Bricolage_Grotesque({ subsets: ['latin'] })
+
 const Footer = () => {
   return (
-    <div className="w-full max-h-full bg-primary/10 dark:bg-primary-foreground flex flex-col py-8 items-center">
-      <div className="w-[840px] flex flex-col gap-3">
-        <div className="flex justify-between uppercase">
-          <div className="flex gap-4 font-semibold text-sm text-primary">
+    <footer
+      className={clsx(
+        'w-full max-h-full bg-primary/10 dark:bg-primary-foreground flex flex-col py-8 items-center scroll-m-2',
+        Bricolage.className
+      )}
+      id="footer"
+    >
+      <div className="max-w-7xl flex flex-col gap-3">
+        <div className="flex justify-between uppercase items-center gap-36">
+          <div className="flex gap-4 font-semibold text-sm text-primary tracking-widest">
             <Link
               href={'#'}
               className="hover:opacity-70 hover:cursor-pointer transition-all duration-50"
@@ -44,7 +54,7 @@ const Footer = () => {
           <p className="text-sm brightness-30 opacity-55">© 2024 byAzimov</p>
         </div>
       </div>
-    </div>
+    </footer>
   )
 }
 

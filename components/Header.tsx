@@ -20,7 +20,7 @@ const Navigation = () => {
     setIsSheetOpen(false)
   }
   return (
-    <div className="p-3 flex items-center z-10 fixed top-0 w-full uppercase md:justify-end">
+    <header className="max-w-7xl mx-auto px-8 py-5 flex items-center z-10 uppercase md:justify-between">
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetTrigger asChild className="z-[100] md:!hidden flex">
           <Button variant="outline" size={'icon'}>
@@ -31,31 +31,58 @@ const Navigation = () => {
           <SheetHeader>
             <SheetTitle>
               <Link
-                href="#about"
+                href="#"
                 className="group flex gap-2 items-center"
                 onClick={closeSheet}
               >
-                <BookOpenText className="group-hover:text-primary/80 duration-100 transition-colors" />
-                <span className="text-xl font-bold">byAzimov</span>
+                <img
+                  src="/images/byAzimov.png"
+                  alt="byAzimov logo"
+                  className="w-30 h-6"
+                />
               </Link>
             </SheetTitle>
           </SheetHeader>
           <Command className="rounded-lg overflow-visible bg-transparent">
             <CommandList className="py-4 overflow-visible">
-              <CommandGroup className="overflow-visible" heading="Navigace">
-                <Link href="#about" onClick={closeSheet}>
+              <CommandGroup className="overflow-visible" heading="Navigation">
+                <Link href="/about" onClick={closeSheet}>
                   <CommandItem className="md:w-[320px] w-full cursor-pointer">
-                    Newsletters
+                    About
                   </CommandItem>
                 </Link>
-                <Link href="#generate-document" onClick={closeSheet}>
+                <Link href="/posts" onClick={closeSheet}>
+                  <CommandItem className="md:w-[320px] w-full cursor-pointer">
+                    All Posts
+                  </CommandItem>
+                </Link>
+                <Link href="/articles" onClick={closeSheet}>
                   <CommandItem className="md:w-[320px] w-full cursor-pointer">
                     Articles
                   </CommandItem>
                 </Link>
-                <Link href="#contact" onClick={closeSheet}>
+                <Link href="/newsletters" onClick={closeSheet}>
+                  <CommandItem className="md:w-[320px] w-full cursor-pointer">
+                    Newsletters
+                  </CommandItem>
+                </Link>
+              </CommandGroup>
+            </CommandList>
+            <CommandList className="py-4 overflow-visible">
+              <CommandGroup className="overflow-visible" heading="Other">
+                <Link href="/contact" onClick={closeSheet}>
                   <CommandItem className="md:w-[320px] w-full cursor-pointer">
                     Contact
+                  </CommandItem>
+                </Link>
+                <Link href="#" onClick={closeSheet}>
+                  <CommandItem className="md:w-[320px] w-full cursor-pointer">
+                    Home
+                  </CommandItem>
+                </Link>
+                <Link href="/socials" onClick={closeSheet}>
+                  <CommandItem className="md:w-[320px] w-full cursor-pointer">
+                    Socials
                   </CommandItem>
                 </Link>
               </CommandGroup>
@@ -63,7 +90,16 @@ const Navigation = () => {
           </Command>
         </SheetContent>
       </Sheet>
-      <header className="gap-2 justify-center font-semibold w-5/12 hidden md:flex text-primary">
+      <aside className="hidden md:flex justify-center items-center">
+        <Link href={'/'}>
+          <img
+            src="/images/byAzimov.png"
+            alt="byAzimov logo"
+            className="w-30 h-6"
+          />
+        </Link>
+      </aside>
+      <aside className="gap-2 justify-center font-semibold w-5/12 hidden md:flex text-primary">
         <Link
           href="#about"
           className="w-40 text-center hover:text-primary/80 duration-100 transition-colors"
@@ -82,8 +118,8 @@ const Navigation = () => {
         >
           Contact
         </Link>
-      </header>
-    </div>
+      </aside>
+    </header>
   )
 }
 
