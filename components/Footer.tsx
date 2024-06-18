@@ -15,7 +15,7 @@ const Footer = () => {
       )}
       id="footer"
     >
-      <div className="max-w-7xl flex flex-col gap-3">
+      <div className="max-w-7xl w-full px-8 flex flex-col gap-3">
         <div className="flex justify-between uppercase items-center gap-36">
           <div className="flex gap-4 font-semibold text-sm text-primary tracking-widest">
             <Link

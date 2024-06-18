@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { BookOpenText, Menu } from 'lucide-react'
+import { signIn, signOut, useSession } from 'next-auth/react'
+import { Menu } from 'lucide-react'
 import Link from 'next/link'
 import {
   Sheet,
@@ -13,7 +14,20 @@ import {
 import { Button } from './ui/button'
 import { Command, CommandGroup, CommandItem, CommandList } from './ui/command'
 
-const Navigation = () => {
+function AuthButton() {
+  const { data: session } = useSession()
+
+  if (session) {
+    return (
+      <>
+        <Button onClick={() => signOut()}>Sign out</Button>
+      </>
+    )
+  }
+  return <Button onClick={() => signIn()}>Sign in</Button>
+}
+
+const Header = () => {
   const [isSheetOpen, setIsSheetOpen] = useState(false)
 
   const closeSheet = () => {
@@ -95,11 +109,11 @@ const Navigation = () => {
           <img
             src="/images/byAzimov.png"
             alt="byAzimov logo"
-            className="w-30 h-6"
+            className="w-30 h-6 dark:hidden"
           />
         </Link>
       </aside>
-      <aside className="gap-2 justify-center font-semibold w-5/12 hidden md:flex text-primary">
+      <aside className="gap-2 justify-center items-center font-semibold w-5/12 hidden md:flex text-primary">
         <Link
           href="#about"
           className="w-40 text-center hover:text-primary/80 duration-100 transition-colors"
@@ -118,9 +132,10 @@ const Navigation = () => {
         >
           Contact
         </Link>
+        <AuthButton />
       </aside>
     </header>
   )
 }
 
-export default Navigation
+export default Header
