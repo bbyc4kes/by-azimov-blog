@@ -79,7 +79,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 If you have any questions or feedback, feel free to reach out:
 
-- **Email**: your.email@example.com
-- **GitHub**: [yourusername](https://github.com/yourusername)
+- **Email**: azimov.workspace@gmail.com
+- **GitHub**: [Maksym Azimov](https://github.com/bbyc4kes)
 
 Thank you for your interest in the byAzimov Blog Project!
