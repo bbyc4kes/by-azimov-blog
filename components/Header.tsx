@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { signIn, signOut, useSession } from 'next-auth/react'
-import { Menu } from 'lucide-react'
+import { LogOut, Menu, User2Icon } from 'lucide-react'
 import Link from 'next/link'
 import {
   Sheet,
@@ -20,11 +20,24 @@ function AuthButton() {
   if (session) {
     return (
       <>
-        <Button onClick={() => signOut()}>Sign out</Button>
+        <Button
+          onClick={() => signOut()}
+          className="flex gap-2 uppercase items-center"
+        >
+          Logout
+          <LogOut className="w-4 h-4" />
+        </Button>
       </>
     )
   }
-  return <Button onClick={() => signIn()}>Sign in</Button>
+  return (
+    <Button
+      onClick={() => signIn()}
+      className="flex gap-2 uppercase items-center"
+    >
+      Login <User2Icon className="w-4 h-4" />
+    </Button>
+  )
 }
 
 const Header = () => {
@@ -113,7 +126,7 @@ const Header = () => {
           />
         </Link>
       </aside>
-      <aside className="gap-2 justify-center items-center font-semibold w-5/12 hidden md:flex text-primary">
+      <aside className="gap-2 justify-center items-center font-semibold hidden md:flex text-primary">
         <Link
           href="#about"
           className="w-40 text-center hover:text-primary/80 duration-100 transition-colors"
